@@ -4,7 +4,7 @@ CREATE TABLE products (
 	product_pk			serial primary key,
 	vendor				varchar(64),
 	description			varchar(256),
-	alt_description			varchar(256)
+	alt_description		varchar(256)
 
 )
 
@@ -13,7 +13,7 @@ CREATE TABLE assets (
 	product_fk			integer REFERENCES products (product_pk) not null,
 	asset_tag			varchar(64),
 	description			varchar(128),
-	alt_description			varchar(128)
+	alt_description		varchar(128)
 )
 
 CREATE TABLE vehicles (
@@ -84,7 +84,7 @@ CREATE TABLE levels (
 )
 
 CREATE TABLE compartments (
-	compartment_pk			serial primary key,
+	compartment_pk		serial primary key,
 	abbrv				VARCHAR(64),
 	comment				VARCHAR(128)
 )
@@ -92,7 +92,7 @@ CREATE TABLE compartments (
 CREATE TABLE security_tags (
 	tag_pk				serial primary key,
 	level_fk			integer REFERENCES levels (level_pk),
-	compartment_fk			integer REFERENCES compartments (compartment_pk),
+	compartment_fk		integer REFERENCES compartments (compartment_pk),
 	user_fk				integer REFERENCES users (user_pk),
 	product_fk			integer REFERENCES products (product_pk),
 	asset_fk			integer	REFERENCES assets (asset_pk)
